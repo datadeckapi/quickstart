@@ -1,6 +1,6 @@
 # Datadeck Quickstart
 
-Welcome to Datadeck's Quickstart! This repo contains two folders: **dotnet/** and **nodejs/**. Each folder contains a minimal full-stack app that implements support end-to-end for one Datadeck product endpoint.
+Welcome to Datadeck's Quickstart! This repo contains two folders: **dotnet/**, **nodejs/** and **python/**. Each folder contains a minimal full-stack app that implements support end-to-end for one Datadeck product endpoint.
 
 To get started, clone the repository, `cd` into one of the folders, and follow the instructions in the corresponding **README**. Enjoy! 
 

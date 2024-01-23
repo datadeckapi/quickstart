@@ -12,7 +12,7 @@ This app uses the latest stable version of Node. At the time of writing, the lat
 
 ## Install dependencies
 
-Ensure you're in the **vanilla_js/** folder, then install the necessary dependencies:
+Ensure you're in the **nodejs/** folder, then install the necessary dependencies:
 
 ```bash
 npm install
