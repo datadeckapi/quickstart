@@ -1,0 +1,68 @@
+﻿@page
+@model Datadeck.Samples.Integration.DotNetCore.Pages.ConnectModel
+@inject Microsoft.AspNetCore.Antiforgery.IAntiforgery Xsrf
+@{
+    var AntiXsrfRequestToken = Xsrf.GetAndStoreTokens(Model.HttpContext).RequestToken;
+}
+
+<h1>
+    Connect your account with us
+</h1>
+
+@section Scripts
+{
+    <script src="https://link.datadeck.co/link-initialize.js"></script>
+    <script>
+        ; (function linkDemoIIFE(context) {
+            context.DatadeckSample = {
+                async startLinkSession(
+                    {
+                        afterLoad = () => { },
+                        onError = () => { },
+                        onSuccess = () => { },
+                        onExit = () => { },
+                    }
+                ) {
+                    try {
+                        // Create a Link session using the link token that was gotten from the backend that called the Datadeck API (/link/token/create)
+                        const token = '@Model.DatadeckLinkToken';
+                        const handler = Datadeck.create({
+                            token,
+                            onSuccess,
+                            onExit,
+                        });
+                        handler.open();
+                    } catch (e) {
+                        console.error(e);
+                        onError(e);
+                    }
+
+                    afterLoad();
+                }
+            }
+        })(window);
+
+        function exchangePublicToken({ public_token }) {
+            // Call the backend and send the public token that was gotten from the Link session
+            $.ajax({
+                type: 'POST',
+                url: "/Connect",
+                data: { public_token },
+                headers:
+                {
+                    // This is only required by ASP.NET Razor pages
+                    "RequestVerificationToken": "@AntiXsrfRequestToken"
+                }
+            });
+        }
+
+        function redirectToPageThanks() {
+            window.location.href = window.location.href = "/Thanks"
+        }
+
+        DatadeckSample.startLinkSession({
+            onSuccess: exchangePublicToken,
+            onExit: redirectToPageThanks,
+        });
+    </script>
+}
