@@ -1,4 +1,4 @@
-﻿# Datadeck quickstart (C# dotnet)
+﻿# [Deck](https://deck.co) quickstart (C# dotnet)
 This repository contains a basic example of a website integration with Datadeck API and Datadeck Link.
 
 You will see how to:
