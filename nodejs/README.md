@@ -1,4 +1,4 @@
-# Datadeck Quickstart (NodeJS)
+# [Deck](https://deck.co) Quickstart (NodeJS)
 
 This is a minimal app that implements Datadeck using a very basic HTML/vanilla JS frontend with an Express/Node backend. After linking a sample utility account, the app retrieves information associated with the account and renders it on the home page.
 
