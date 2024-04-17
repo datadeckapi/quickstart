@@ -1,4 +1,4 @@
-# Datadeck Quickstart (Python)
+# [Deck](https://deck.co) Quickstart (Python)
 
 This is a minimal app that implements Datadeck using a very basic HTML/vanilla JS frontend with a Flask/Python backend. After linking a sample utility account, the app retrieves information associated with the account and renders it on the home page.
 
