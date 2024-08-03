@@ -22,13 +22,15 @@ namespace Deck.Samples.Integration.DotNetCore.Pages
             DatadeckLinkToken = await datadeckApiClient.GetLinkToken();
         }
 
-        public async Task OnPost([FromForm] string public_token)
+        public async Task<IActionResult> OnPost([FromForm] string public_token)
         {
             // Exchange the public token from the Link iframe for an access token
             var accessToken = await datadeckApiClient.ExchangePublicToken(public_token);
 
             // Store the access token with care, this is your master key to the data collected from the user credentials
             Console.WriteLine($"Your access token is \"{accessToken}\"");
+
+            return new JsonResult(new { access_token = accessToken });
         }
     }
 }

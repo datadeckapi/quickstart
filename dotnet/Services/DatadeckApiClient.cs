@@ -49,7 +49,7 @@ namespace Deck.Samples.Integration.DotNetCore.Services
 
         public async Task<string> GetProductEndpoint(string product, string access_token)
         {
-            var request = new RestRequest($"{product}/get")
+            var request = new RestRequest(GetProductEndpoint(product))
                 .AddHeader("x-datadeck-client-id", clientId)
                 .AddHeader("x-datadeck-secret", secret)
                 .AddBody(new { access_token }
@@ -57,6 +57,18 @@ namespace Deck.Samples.Integration.DotNetCore.Services
 
             var responseJson = await client.PostAsync(request);
             return responseJson.Content!;
+        }
+
+        private string GetProductEndpoint(string product)
+        {
+            if (product == "freelancer")
+                return $"{product}/income_summary";
+            else if (product == "employment")
+                return $"{product}/salaried/get";
+            else if (product == "sustainability")
+                return $"{product}/consumption/invoices/get";
+            else
+                return $"{product}/get";
         }
     }
 }

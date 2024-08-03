@@ -47,6 +47,7 @@
         })(window);
 
         function exchangePublicToken({ public_token }) {
+            this.access_token = null;
             // Call the backend and send the public token that was gotten from the Link session
             $.ajax({
                 type: 'POST',
@@ -57,11 +58,11 @@
                     // This is only required by ASP.NET Razor pages
                     "RequestVerificationToken": "@AntiXsrfRequestToken"
                 }
-            });
+            }).done(data => { this.access_token = data.access_token })
         }
 
         function redirectToPageThanks() {
-            window.location.href = window.location.href = "/Thanks"
+            window.location.href = window.location.href = '/Thanks?access_token=' + this.access_token;
         }
 
         DatadeckSample.startLinkSession({
