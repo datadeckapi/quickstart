@@ -1,5 +1,5 @@
 ﻿@page
-@model Datadeck.Samples.Integration.DotNetCore.Pages.ConnectModel
+@model ConnectModel
 @inject Microsoft.AspNetCore.Antiforgery.IAntiforgery Xsrf
 @{
     var AntiXsrfRequestToken = Xsrf.GetAndStoreTokens(Model.HttpContext).RequestToken;
@@ -24,12 +24,16 @@
                     }
                 ) {
                     try {
-                        // Create a Link session using the link token that was gotten from the backend that called the Datadeck API (/link/token/create)
+                        // Create a Link session using the link token that was gotten from the backend that called the Deck API (/link/token/create)
                         const token = '@Model.DatadeckLinkToken';
-                        const handler = Datadeck.create({
+                        const handler = Deck.create({
                             token,
                             onSuccess,
-                            onExit,
+                            onExit
+                            
+                            // A single source can be specified, this will skip the source select screen.
+                            // For the skip to work, make sure that the source specified here would appear normally on the source select screen.
+                            //, source_id: '09320c5d-8552-47df-8aa3-98fe1c0b5505'
                         });
                         handler.open();
                     } catch (e) {

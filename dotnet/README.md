@@ -1,9 +1,9 @@
 ﻿# [Deck](https://deck.co) quickstart (C# dotnet)
-This repository contains a basic example of a website integration with Datadeck API and Datadeck Link.
+This repository contains a basic example of a website integration with Deck API and Deck Link.
 
 You will see how to:
 * Use the Link SDK for embedding the Link widget within a website.
-* Communicate with the Datadeck API from a backend.
+* Communicate with the Deck API from a backend.
 * Exchange data between the Link widget iframe, website frontend and backend.
 * Obtain a Link token to initialize a Link session.
 * Connect account data by completing a Link session.
@@ -26,7 +26,7 @@ Once the web application is started, you can browse to `https://localhost:7067` 
 
 By browsing to `https://localhost:7067/Connect` or clicking on the "Connect" hyperlink in the top bar, you will land on the web page that integrates the Link widget and a Link session will be initialized. If you get an error message, it means that you did not set up your client id and secret correctly in the backend.
 
-![Datadeck sample - Connect page](https://images.cdn.datadeck.co/samples/dotnet/connect.png)
+![Deck sample - Connect page](https://images.cdn.datadeck.co/samples/dotnet/connect.png)
 
 After completing the Link session (choosing a data source, inputting credentials and clicking the final OK button), the backend will get the access token associated to this connection and print it in the console window of the web application, e.g.:
 
@@ -36,28 +36,28 @@ The access token is used for retrieving the data collected with the provided cre
 
 There is a page available on the sample website for showing how you can use the access token to view account data obtained from the connection.
 
-![Datadeck sample - View data](https://images.cdn.datadeck.co/samples/dotnet/data.png)
+![Deck sample - View data](https://images.cdn.datadeck.co/samples/dotnet/data.png)
 
 ## 4. Digging into the code
 
 ### DatadeckApiClient.cs
-This is the backend service for communicating with the Datadeck API. You should be using the client id associated to the *Team* you want to collect credentials for. You should also be using the secret corresponding to the Datadeck environment you want to work on (sandbox, development or production).
+This is the backend service for communicating with the Deck API. You should be using the client id associated to the *Team* you want to collect credentials for. You should also be using the secret corresponding to the Datadeck environment you want to work on (sandbox, development or production).
 
 Keep in mind: Requests that are using your client id and secret must be made exclusively from the backend and not directly from the frontend, in order to not expose your sensitive keys publicly.
 
 ### Connect.cshtml
-This frontend web page shows how to integrate the Link SDK in order to use the Datadeck Link widget. First, the Link SDK script is added:
+This frontend web page shows how to integrate the Link SDK in order to use the Deck Link widget. First, the Link SDK script is added:
 
     <script src="https://link.datadeck.co/link-initialize.js"></script>
     
 Then custom functions are created for:
 * Obtaining a link token from the backend.
-* Launching the Link widget by calling `Datadeck.create` with the link token.
+* Launching the Link widget by calling `Deck.create` with the link token.
 * Passing the public token returned by the Link iframe at the end of the Link session to your backend, using the onSuccess event handler.
 
 ### Connect.cshtml.cs
 
-The backend is used for communicating with the Datadeck API at two important moments:
+The backend is used for communicating with the Deck API at two important moments:
 * To initialize the Link session and obtain the link token to pass to the frontend.
 * To exchange the public token obtained at the end of the Link session for an access token.
 

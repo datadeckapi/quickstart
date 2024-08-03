@@ -1,8 +1,8 @@
-using Datadeck.Samples.Integration.DotNetCore.Services;
+using Deck.Samples.Integration.DotNetCore.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace Datadeck.Samples.Integration.DotNetCore.Pages
+namespace Deck.Samples.Integration.DotNetCore.Pages
 {
     public class ConnectModel : PageModel
     {

@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace Datadeck.Samples.Integration.DotNetCore.Pages
+namespace Deck.Samples.Integration.DotNetCore.Pages
 {
     public class IndexModel : PageModel
     {

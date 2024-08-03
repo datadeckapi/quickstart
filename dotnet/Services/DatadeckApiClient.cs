@@ -1,7 +1,7 @@
-﻿using Datadeck.Samples.Integration.DotNetCore.Models.DatadeckApi;
+﻿using Deck.Samples.Integration.DotNetCore.Models.DatadeckApi;
 using RestSharp;
 
-namespace Datadeck.Samples.Integration.DotNetCore.Services
+namespace Deck.Samples.Integration.DotNetCore.Services
 {
     public class DatadeckApiClient
     {
@@ -15,7 +15,7 @@ namespace Datadeck.Samples.Integration.DotNetCore.Services
         private Guid clientId = new Guid("*** Use your client id here ***");
         private Guid secret = new Guid("*** Use your secret here ***");
 
-        // Using RestSharp for communicating with Datadeck API
+        // Using RestSharp for communicating with Deck API
 
         private readonly RestClient client;
 

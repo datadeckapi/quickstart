@@ -1,4 +1,4 @@
-﻿namespace Datadeck.Samples.Integration.DotNetCore.Models.DatadeckApi
+﻿namespace Deck.Samples.Integration.DotNetCore.Models.DatadeckApi
 {
     public record LinkTokenCreateResponse
     {
