@@ -62,7 +62,7 @@ namespace Deck.Samples.Integration.DotNetCore.Services
         private string GetProductEndpoint(string product)
         {
             if (product == "freelancer")
-                return $"{product}/income_summary";
+                return $"{product}/income_summary/get";
             else if (product == "employment")
                 return $"{product}/salaried/get";
             else if (product == "sustainability")
