@@ -1,5 +1,5 @@
 /*
-server.js – Uses Express to defines routes that call Datadeck endpoints in the Sandbox environment.
+server.js – Uses Express to defines routes that call Deck endpoints in the Sandbox environment.
 */
 
 require("dotenv").config()
@@ -33,8 +33,8 @@ const client = {
     return fetch(`${this._api}/${endpoint}`, {
       method: "POST",
       headers: {
-        "x-datadeck-client-id": process.env.DATADECK_CLIENT_ID,
-        "x-datadeck-secret": process.env.DATADECK_SECRET,
+        "x-datadeck-client-id": process.env.DECK_CLIENT_ID,
+        "x-datadeck-secret": process.env.DECK_SECRET,
         "Content-Type": "application/json",
       },
       body: JSON.stringify(bodyJson),
@@ -48,7 +48,7 @@ app.post("/api/create_link_token", async (req, res, next) => {
   res.json(await response.json())
 })
 
-// Exchanges the public token from Datadeck Link for an access token
+// Exchanges the public token from Deck Link for an access token
 app.post("/api/exchange_public_token", async (req, res, next) => {
   const exchangeResponse = await client.post(
     "connection/public_token/exchange",

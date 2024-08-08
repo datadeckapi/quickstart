@@ -41,7 +41,7 @@
   async function startLink() {
     const { link_token: token } = await client.createToken()
 
-    const handler = Datadeck.create({
+    const handler = Deck.create({
       token,
       onExit() {
         logEvent("onExit()")
