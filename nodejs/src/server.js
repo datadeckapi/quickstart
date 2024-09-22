@@ -33,8 +33,8 @@ const client = {
     return fetch(`${this._api}/${endpoint}`, {
       method: "POST",
       headers: {
-        "x-datadeck-client-id": process.env.DATADECK_CLIENT_ID,
-        "x-datadeck-secret": process.env.DATADECK_SECRET,
+        "x-deck-client-id": process.env.DATADECK_CLIENT_ID,
+        "x-deck-secret": process.env.DATADECK_SECRET,
         "Content-Type": "application/json",
       },
       body: JSON.stringify(bodyJson),

@@ -27,8 +27,8 @@ namespace Deck.Samples.Integration.DotNetCore.Services
         public async Task<string> GetLinkToken()
         {
             var request = new RestRequest("link/token/create")
-                .AddHeader("x-datadeck-client-id", clientId)
-                .AddHeader("x-datadeck-secret", secret)
+                .AddHeader("x-deck-client-id", clientId)
+                .AddHeader("x-deck-secret", secret)
                 ;
 
             var response = await client.PostAsync<LinkTokenCreateResponse>(request);
@@ -38,8 +38,8 @@ namespace Deck.Samples.Integration.DotNetCore.Services
         public async Task<string> ExchangePublicToken(string public_token)
         {
             var request = new RestRequest("connection/public_token/exchange")
-                .AddHeader("x-datadeck-client-id", clientId)
-                .AddHeader("x-datadeck-secret", secret)
+                .AddHeader("x-deck-client-id", clientId)
+                .AddHeader("x-deck-secret", secret)
                 .AddBody(new { public_token }
                 );
 
@@ -50,8 +50,8 @@ namespace Deck.Samples.Integration.DotNetCore.Services
         public async Task<string> GetProductEndpoint(string product, string access_token)
         {
             var request = new RestRequest(GetProductEndpoint(product))
-                .AddHeader("x-datadeck-client-id", clientId)
-                .AddHeader("x-datadeck-secret", secret)
+                .AddHeader("x-deck-client-id", clientId)
+                .AddHeader("x-deck-secret", secret)
                 .AddBody(new { access_token }
                 );
 

@@ -15,8 +15,8 @@ class Client:
 
     def post(self, endpoint, bodyJson={}):
         headers = {
-            "x-datadeck-client-id": os.environ.get("DATADECK_CLIENT_ID"),
-            "x-datadeck-secret": os.environ.get("DATADECK_SECRET"),
+            "x-deck-client-id": os.environ.get("DATADECK_CLIENT_ID"),
+            "x-deck-secret": os.environ.get("DATADECK_SECRET"),
             "Content-Type": "application/json",
         }
         response = requests.post(f"{self._api}/{endpoint}", headers=headers, json=bodyJson)
