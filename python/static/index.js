@@ -43,6 +43,11 @@
 
     const handler = Datadeck.create({
       token,
+
+      // A single source can be specified, this will skip the source select screen.
+      // For the skip to work, make sure that the source specified here would appear normally on the source select screen.
+      // source_id: '09320c5d-8552-47df-8aa3-98fe1c0b5505',
+
       onExit() {
         logEvent("onExit()")
       },
