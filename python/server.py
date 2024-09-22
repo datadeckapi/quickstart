@@ -15,8 +15,8 @@ class Client:
 
     def post(self, endpoint, bodyJson={}):
         headers = {
-            "x-deck-client-id": os.environ.get("DATADECK_CLIENT_ID"),
-            "x-deck-secret": os.environ.get("DATADECK_SECRET"),
+            "x-deck-client-id": os.environ.get("DECK_CLIENT_ID"),
+            "x-deck-secret": os.environ.get("DECK_SECRET"),
             "Content-Type": "application/json",
         }
         response = requests.post(f"{self._api}/{endpoint}", headers=headers, json=bodyJson)
@@ -30,7 +30,7 @@ def create_link_token():
     response = client.post("link/token/create")
     return response.json()
 
-# Exchanges the public token from Datadeck Link for an access token
+# Exchanges the public token from Deck Link for an access token
 @app.route("/api/exchange_public_token", methods=["POST"])
 def exchange_public_token():
     exchangeResponse = client.post("connection/public_token/exchange", {

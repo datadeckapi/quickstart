@@ -1,7 +1,7 @@
 {
-  "name": "datadeck-quickstart",
+  "name": "deck-quickstart",
   "version": "0.1.0",
-  "description": "A minimal quickstart demonstrating Datadeck Link",
+  "description": "A minimal quickstart demonstrating Deck Link",
   "main": "server.js",
   "scripts": {
     "start": "node src/server.js"

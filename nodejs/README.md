@@ -1,6 +1,6 @@
 # [Deck](https://deck.co) Quickstart (NodeJS)
 
-This is a minimal app that implements Datadeck using a very basic HTML/vanilla JS frontend with an Express/Node backend. After linking a sample utility account, the app retrieves information associated with the account and renders it on the home page.
+This is a minimal app that implements Deck using a very basic HTML/vanilla JS frontend with an Express/Node backend. After linking a sample utility account, the app retrieves information associated with the account and renders it on the home page.
 
 ![Screenshot of the app](https://i.imgur.com/UBDKovj.png)
 
@@ -26,15 +26,17 @@ Copy the included **.env.example** to a file called **.env**.
 cp .env.example .env
 ```
 
-Fill out the contents of the **.env** file with the [client ID and Sandbox secret in your Datadeck dashboard](https://app.datadeck.co). Don't place quotes (`"`) around the credentials (i.e., `DATADECK_CLIENT_ID=adn08a280hqdaj0ad`). Use the "Sandbox" secret when setting the `DATADECK_SECRET` variable.
+Fill out the contents of the **.env** file with the [client ID and Sandbox secret in your Deck dashboard](https://app.deck.co). Don't place quotes (`"`) around the credentials (i.e., `DECK_CLIENT_ID=adn08a280hqdaj0ad`). Use the "Sandbox" secret when setting the `DECK_SECRET` variable.
+
+![Credentials](https://i.imgur.com/CNpRnby.png)
 
 # Start the server
 
 ```bash
-yarn start
+npm start
 ```
 
-The app will run on port 8080.
+The app will run on port http://127.0.0.1:8080
 
 ## Using the app
 

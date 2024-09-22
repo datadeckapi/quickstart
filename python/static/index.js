@@ -41,7 +41,7 @@
   async function startLink() {
     const { link_token: token } = await client.createToken()
 
-    const handler = Datadeck.create({
+    const handler = Deck.create({
       token,
 
       // A single source can be specified, this will skip the source select screen.
