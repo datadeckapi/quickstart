@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Link SDK Demo</title>
-    
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
     <style>
       .btn-demo {
@@ -17,17 +18,22 @@
       }
     </style>
   </head>
+
   <body>
     <main class="container">
       <hgroup>
         <h1>Link Quickstart</h1>
         <p>
-          This is a minimal app that implements Deck using a very basic HTML/vanilla JS frontend with an Express/Node backend. 
-          After linking a sample utility account, the app retrieves information associated with the account and renders it on the home page.
+          This is a minimal app that implements Deck using a very basic HTML/vanilla JS frontend with an Express/Node
+          backend. After linking a sample utility account, the app retrieves information associated with the account and
+          renders it on the home page.
         </p>
       </hgroup>
 
       <button class="btn-demo" onClick="startLink()">Link Account</button>
+      <button class="btn-demo" onClick="getBillData()" disabled>bill/get</button>
+      <button class="btn-demo" onClick="getSustainabilityData()" disabled>sustainability/get</button>
+
       <pre class="js-events"></pre>
 
       <div style="height: 1200px"></div>
@@ -37,4 +43,5 @@
     <script src="https://link.deck.co/link-initialize.js"></script>
     <script src="index.js"></script>
   </body>
+
 </html>
