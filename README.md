@@ -8,4 +8,4 @@ To get started, clone the repository, `cd` into one of the folders, and follow t
 git clone https://github.com/datadeckapi/quickstart.git && cd ./quickstart
 ```
 
-If you're looking for a more fully-featured quickstart, covering more API endpoints, available in more languages, and with explanations of the underlying flows, see the official [Deck Quickstart](https://docs.datadeck.co/docs/introduction).
+If you're looking for a more fully-featured quickstart, covering more API endpoints, available in more languages, and with explanations of the underlying flows, see the official [Deck Quickstart](https://docs.deck.co/docs/introduction).

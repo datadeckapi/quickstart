@@ -28,7 +28,7 @@ app.get("/index.js", async (req, res) => {
 })
 
 const client = {
-  _api: "https://sandbox.datadeck.co/api/v1",
+  _api: "https://sandbox.deck.co/api/v1",
   post(endpoint, bodyJson = {}) {
     return fetch(`${this._api}/${endpoint}`, {
       method: "POST",

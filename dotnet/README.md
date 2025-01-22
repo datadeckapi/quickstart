@@ -14,7 +14,7 @@ You will see how to:
 Clone the repository or download the code to your local workstation.
 
 ## 2. Set up your environment
-You need to replace the values in the `DatadeckApiClient.cs` file with your own. We recommend using  your client id and **sandbox secret** to start with. For using a live secret, you will have to update the API host also. Get your client id and secrets from the [dashboard](https://app.datadeck.co/api-keys).
+You need to replace the values in the `DatadeckApiClient.cs` file with your own. We recommend using  your client id and **sandbox secret** to start with. For using a live secret, you will have to update the API host also. Get your client id and secrets from the [dashboard](https://app.deck.co/api-keys).
 
     private Guid clientId = new Guid("*** Use your client id here ***");
     private Guid secret = new Guid("*** Use your secret here ***");
@@ -26,7 +26,7 @@ Once the web application is started, you can browse to `https://localhost:7067` 
 
 By browsing to `https://localhost:7067/Connect` or clicking on the "Connect" hyperlink in the top bar, you will land on the web page that integrates the Link widget and a Link session will be initialized. If you get an error message, it means that you did not set up your client id and secret correctly in the backend.
 
-![Deck sample - Connect page](https://images.cdn.datadeck.co/samples/dotnet/connect.png)
+![Deck sample - Connect page](https://images.cdn.deck.co/samples/dotnet/connect.png)
 
 After completing the Link session (choosing a data source, inputting credentials and clicking the final OK button), the backend will get the access token associated to this connection and print it in the console window of the web application, e.g.:
 
@@ -36,7 +36,7 @@ The access token is used for retrieving the data collected with the provided cre
 
 There is a page available on the sample website for showing how you can use the access token to view account data obtained from the connection.
 
-![Deck sample - View data](https://images.cdn.datadeck.co/samples/dotnet/data.png)
+![Deck sample - View data](https://images.cdn.deck.co/samples/dotnet/data.png)
 
 ## 4. Digging into the code
 
@@ -48,7 +48,7 @@ Keep in mind: Requests that are using your client id and secret must be made exc
 ### Connect.cshtml
 This frontend web page shows how to integrate the Link SDK in order to use the Deck Link widget. First, the Link SDK script is added:
 
-    <script src="https://link.datadeck.co/link-initialize.js"></script>
+    <script src="https://link.deck.co/link-initialize.js"></script>
     
 Then custom functions are created for:
 * Obtaining a link token from the backend.
