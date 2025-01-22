@@ -7,7 +7,7 @@ namespace Deck.Samples.Integration.DotNetCore.Services
     {
         // "sandbox" could be replaced with "live" as required
 
-        private string apiHost = "https://sandbox.datadeck.co/api/v1";
+        private string apiHost = "https://sandbox.deck.co/api/v1";
 
         // Change the values here
         // Do not expose these in your web application public code!

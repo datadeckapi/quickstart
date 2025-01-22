@@ -8,7 +8,7 @@ This is a minimal app that implements Deck using a very basic HTML/vanilla JS fr
 
 ## Equip the app with credentials
 
-Add the [client ID and Sandbox secret from your Deck dashboard](https://app.datadeck.co) to a `.env` file. Don't place quotes (`"`) around the credentials (i.e., `DECK_CLIENT_ID=adn08a280hqdaj0ad`). Use the "Sandbox" secret when setting the `DECK_SECRET` variable.
+Add the [client ID and Sandbox secret from your Deck dashboard](https://app.deck.co) to a `.env` file. Don't place quotes (`"`) around the credentials (i.e., `DECK_CLIENT_ID=adn08a280hqdaj0ad`). Use the "Sandbox" secret when setting the `DECK_SECRET` variable.
 
 ```bash
 # .env

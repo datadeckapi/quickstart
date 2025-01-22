@@ -11,7 +11,7 @@ def index():
 
 class Client:
     def __init__(self):
-        self._api = "https://sandbox.datadeck.co/api/v1"
+        self._api = "https://sandbox.deck.co/api/v1"
 
     def post(self, endpoint, bodyJson={}):
         headers = {
