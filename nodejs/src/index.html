@@ -16,6 +16,15 @@
         width: auto;
         margin-right: 28px;
       }
+
+      .file-links a {
+        display: block;
+        margin-top: 16px;
+      }
+
+      .js-events {
+        max-height: 55vh;
+      }
     </style>
   </head>
 
@@ -30,9 +39,12 @@
         </p>
       </hgroup>
 
-      <button class="btn-demo" onClick="startLink()">Link Account</button>
+      <button class="btn-demo" onClick="startLink(event)">Link Account</button>
       <button class="btn-demo" onClick="getBillData()" disabled>bill/get</button>
+      <button class="btn-demo" onClick="getBillStatement()" disabled>bill/statement</button>
       <button class="btn-demo" onClick="getSustainabilityData()" disabled>sustainability/get</button>
+      <button class="btn-demo sustainability-file" onClick="getSustainabilityFile()"
+        disabled>sustainability/statement/file</button>
 
       <pre class="js-events"></pre>
 

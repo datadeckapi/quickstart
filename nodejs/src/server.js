@@ -3,11 +3,14 @@ server.js – Uses Express to defines routes that call Deck endpoints in the San
 */
 
 require("dotenv").config();
+const fs = require("fs");
+const { Readable } = require("stream");
 const express = require("express");
 const session = require("express-session");
 const path = require("path");
 const util = require("util");
 const app = express();
+let statement_id = 0;
 
 app.use(
   // FOR DEMO PURPOSES ONLY
@@ -71,32 +74,81 @@ app.get("/api/bill", async (req, res, next) => {
   const balanceResponse = await client.post("bill/get", {
     access_token,
   });
-  console.log("-------\nResponse:\n", balanceResponse);
+  // console.log("-------\nResponse:\n", balanceResponse);
   const Balance = await balanceResponse.json();
   console.log(
     "-------\nBody:\n",
     util.inspect(Balance, { showHidden: false, depth: null, colors: true })
   );
-  res.json({
-    Balance,
+  res.json(Balance);
+});
+
+app.get("/api/bill/statement", async (req, res, next) => {
+  const access_token = req.session.access_token;
+  console.log("## Calling Deck bill/statement...");
+  const balanceResponse = await client.post("bill/statement", {
+    access_token,
   });
+  // console.log("-------\nResponse:\n", balanceResponse);
+  const Balance = await balanceResponse.json();
+  console.log(
+    "-------\nBody:\n",
+    util.inspect(Balance, { showHidden: false, depth: null, colors: true })
+  );
+  res.json(Balance);
 });
 
 app.get("/api/sustainability", async (req, res, next) => {
   const access_token = req.session.access_token;
   console.log("## Calling Deck sustainability/get...");
-  const balanceResponse = await client.post("sustainability/get", {
+  const sustainabilityResponse = await client.post("sustainability/get", {
     access_token,
   });
-  console.log("-------\nResponse:\n", balanceResponse);
-  const Balance = await balanceResponse.json();
+  // console.log("-------\nResponse:\n", sustainabilityResponse);
+  const sustainabilityData = await sustainabilityResponse.json();
   console.log(
     "-------\nBody:\n",
-    util.inspect(Balance, { showHidden: false, depth: null, colors: true })
+    util.inspect(sustainabilityData, {
+      showHidden: false,
+      depth: null,
+      colors: true,
+    })
   );
-  res.json({
-    Balance,
+  // set statement_id for later use
+  statement_id = sustainabilityData.accounts[0].statements[0].statement_id;
+  console.log("-------\nStatement id:\n", statement_id);
+  res.json(sustainabilityData);
+});
+
+app.get("/api/sustainability/statement/file", async (req, res, next) => {
+  if (statement_id === 0) {
+    return res.status(400).json({ error: "No statement_id available yet" });
+  }
+  const access_token = req.session.access_token;
+  console.log("## Calling Deck sustainability/statement/file...");
+  const fileResponse = await client.post("sustainability/statement/file", {
+    access_token,
+    statement_id: statement_id,
   });
+  // console.log("-------\nResponse:\n", fileResponse, fileResponse.body);
+
+  const readableNodeStream = Readable.fromWeb(fileResponse.body);
+  const timestamp = new Date().toISOString().replace(/[:.]/g, "-");
+  const outputPath = path.join(
+    `./files/sustainability_statement_${timestamp}.pdf`
+  );
+  const fileStream = fs.createWriteStream(outputPath);
+
+  // Pipe the readable stream into the writable stream
+  await new Promise((resolve, reject) => {
+    readableNodeStream.pipe(fileStream);
+    readableNodeStream.on("error", reject);
+    fileStream.on("finish", resolve);
+  });
+
+  console.log(`File saved to ${outputPath}`);
+
+  res.json({ file: outputPath });
 });
 
 const PORT = process.env.PORT || 8080;
