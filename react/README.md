@@ -6,3 +6,5 @@ Minimal app that opens the link iframe using [react-deck-link](https://www.npmjs
 yarn
 yarn start
 ```
+
+Demo this app at https://datadeckapi.github.io/quickstart/
